@@ -37,6 +37,7 @@ export class PlayerPage implements OnInit {
 
   ionViewWillEnter() {
     if (this.media) {
+      this.playerService.sendCmd(PlayerCmds.SHUFFLEOFF);
       this.playerService.sendCmd(PlayerCmds.CLEARQUEUE);
 
       window.setTimeout(() => {
