@@ -14,7 +14,8 @@ export enum PlayerCmds {
   NEXT = 'next',
   VOLUMEUP = 'volume/+5',
   VOLUMEDOWN = 'volume/-5',
-  CLEARQUEUE = 'clearqueue'
+  CLEARQUEUE = 'clearqueue',
+  SHUFFLEOFF = 'shuffle/off'
 }
 
 @Injectable({
