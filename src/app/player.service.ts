@@ -16,7 +16,8 @@ export enum PlayerCmds {
   VOLUMEDOWN = 'volume/-2',
   VOLUMENORMALIZE = 'volume/7',
   CLEARQUEUE = 'clearqueue',
-  SHUFFLEOFF = 'shuffle/off'
+  SHUFFLEOFF = 'shuffle/off',
+  STATE = 'state'
 }
 
 @Injectable({
@@ -119,7 +120,7 @@ export class PlayerService {
   private sendRequest(url: string) {
     this.getConfig().subscribe(config => {
       const baseUrl = 'http://' + config.server + ':' + config.port + '/' + config.rooms[0] + '/';
-      this.http.get(baseUrl + url).subscribe();
+      return this.http.get(baseUrl + url).subscribe();
     });
   }
 }
