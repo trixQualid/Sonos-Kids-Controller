@@ -12,8 +12,9 @@ export enum PlayerCmds {
   PLAYPAUSE = 'playpause',
   PREVIOUS = 'previous',
   NEXT = 'next',
-  VOLUMEUP = 'volume/+5',
-  VOLUMEDOWN = 'volume/-5',
+  VOLUMEUP = 'volume/+2',
+  VOLUMEDOWN = 'volume/-2',
+  VOLUMENORMALIZE = 'volume/7',
   CLEARQUEUE = 'clearqueue',
   SHUFFLEOFF = 'shuffle/off'
 }
