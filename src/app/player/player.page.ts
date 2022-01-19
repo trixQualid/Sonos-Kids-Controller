@@ -37,6 +37,9 @@ export class PlayerPage implements OnInit {
 
   ionViewWillEnter() {
     if (this.media) {
+      if(!this.playerService.sendCmd(PlayerCmds.STATE).contains('"playbackState":"PLAYING"')) {
+         this.playerService.sendCmd(PlayerCmds.VOLUMENORMALIZE);
+      }
       this.playerService.sendCmd(PlayerCmds.SHUFFLEOFF);
       this.playerService.sendCmd(PlayerCmds.CLEARQUEUE);
 
