@@ -14,7 +14,6 @@ export enum PlayerCmds {
   NEXT = 'next',
   VOLUMEUP = 'volume/+2',
   VOLUMEDOWN = 'volume/-2',
-  VOLUMENORMALIZE = 'volume/7',
   CLEARQUEUE = 'clearqueue',
   SHUFFLEOFF = 'shuffle/off'
 }
@@ -43,7 +42,23 @@ export class PlayerService {
 
     return this.config;
   }
-
+  
+  normalizeVolume() {
+	this.getConfig().subscribe(config => {
+		if(config.normalizeVolume?.length > 0) {
+			this.sendRequest('volume/' + config.normalizeVolume);
+		}
+	});
+  }
+  
+  pauseOnLeave() {
+	this.getConfig().subscribe(config => {
+		if(config.pauseOnLeave) {
+			this.sendCmd(PlayerCmds.PAUSE);
+		}
+	});
+  }
+  
   getState() {
     this.sendRequest('state');
   }

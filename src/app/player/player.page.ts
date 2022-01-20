@@ -37,6 +37,7 @@ export class PlayerPage implements OnInit {
 
   ionViewWillEnter() {
     if (this.media) {
+	  this.playerService.normalizeVolume();
       this.playerService.sendCmd(PlayerCmds.SHUFFLEOFF);
       this.playerService.sendCmd(PlayerCmds.CLEARQUEUE);
 
@@ -47,7 +48,7 @@ export class PlayerPage implements OnInit {
   }
 
   ionViewWillLeave() {
-    this.playerService.sendCmd(PlayerCmds.PAUSE);
+   	this.playerService.pauseOnLeave();
   }
 
   volUp() {
